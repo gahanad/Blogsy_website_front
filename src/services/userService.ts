@@ -1,18 +1,8 @@
-import axios from 'axios';
-import authService from './authService';
 import apiClient from '@/utils/axiosConfig';
 import {User} from '@/app/types/message';
 
 // const API_URL = "http://localhost:5000/api/users/";
 
-const getAuthHeaders = () =>{
-    const token = authService.getToken();
-    return{
-        headers:{
-            Authorization: token? `Bearer ${token}`:'',
-        },
-    };
-};
 
 interface UpdateEditProfile{
     username?: string;

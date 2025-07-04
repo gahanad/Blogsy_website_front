@@ -30,6 +30,7 @@ export default function SettingsPage() {
                 setEmail(user.email); // Set initial email
                 setBio(user.bio || ''); // Ensure bio is not undefined
                 setAvatar(user.avatar || '/images/Logo_enter.png'); // Set initial avatar
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (err: any) {
                 console.error('Failed to fetch user profile for settings:', err);
                 setError(err.response?.data?.message || 'Failed to load profile data.');
@@ -109,6 +110,7 @@ export default function SettingsPage() {
 
             setSuccessMessage('Profile updated successfully!');
             // Optional: router.push(`/profile/${updatedUser.username}`); // Redirect to profile page
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (err: any) {
             console.error('Error updating profile:', err);
             setError(err.response?.data?.message || 'Failed to update profile.');

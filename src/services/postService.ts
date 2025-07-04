@@ -1,17 +1,8 @@
-import axios from 'axios';
-import authService from './authService';
 import apiClient from '@/utils/axiosConfig';
 
-const API_URL = "http://localhost:5000/api/posts/";
 
-const getAuthHeaders = ()=>{
-    const token = authService.getToken();
-    return{
-        headers: {
-            Authorization: token? `Bearer ${token}`: '',
-        },
-    };
-};
+
+
 
 export interface ApiPost {
   _id: string;
@@ -29,6 +20,7 @@ export interface ApiPost {
   content: string;
   image?: string;
   likes: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   comments: any[];
   createdAt: string;
 }
@@ -53,7 +45,7 @@ const likePost = async(postId: string)=>{
     return response.data;
 }
 
-const commentPost = async(postId: string, content: string)=>{
+const commentPost = async(postId: string)=>{
     const response = await apiClient.put(`/posts/${postId}/comment`, {});
     return response.data;
 }

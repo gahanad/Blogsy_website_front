@@ -8,7 +8,7 @@ import userService from '@/services/userService'; // Assuming you have this
 import messageService from '@/services/messageService'; // NEW: Your message service
 import authService from '@/services/authService'; // To get current user ID/info
 import Link from 'next/link';
-import {Message, UserProfile} from "@/app/types/message";
+import {UserProfile} from "@/app/types/message";
 
 // Assuming User interface is similar to DashboardPage
 interface User {
@@ -28,7 +28,7 @@ export default function UserProfilePage() {
      // Could be username or ID
     const router = useRouter();
     // To check if userIdentifier is present or not
-    const userIdentifier = params.username as string;
+    // const userIdentifier = params.username as string;
     const [profileUser, setProfileUser] = useState<User | null>(null); // The user whose profile is being viewed
     const [currentUser, setCurrentUser] = useState<UserProfile | null>(null); // The logged-in user
     const [loading, setLoading] = useState(true);
@@ -48,7 +48,7 @@ export default function UserProfilePage() {
                 if(loggedInUser){
                   setCurrentUser(loggedInUser.user);
                 } // Assuming this function returns current user
-
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (err: any) {
                 console.error('Failed to fetch user profile:', err);
                 setError('Failed to load profile. Please try again.');
@@ -63,7 +63,7 @@ export default function UserProfilePage() {
             }
         };
         fetchUserProfile();
-    }, [userIdentifier, router]); // Re-fetch if userIdentifier changes
+    }, [params.username, router]); // Re-fetch if userIdentifier changes
 
     // ---- NEW: Handle initiating a conversation ----
     const handleStartConversation = useCallback(async () => {
@@ -85,7 +85,7 @@ export default function UserProfilePage() {
 
             // If successful, navigate to the newly created/found conversation's page
             router.push(`/messages/${response.conversationId}`);
-
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (err: any) {
             console.error('Error starting conversation:', err);
             alert(err.response?.data?.message || 'Failed to start conversation.');

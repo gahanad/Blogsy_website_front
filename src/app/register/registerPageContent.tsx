@@ -53,6 +53,7 @@ export default function RegisterPageContent() {
       
       alert('Registration successful!'); // Use better notification
       router.push('/login'); // Redirect to the login page after successful registration
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       // Log the full error for debugging
       console.error('Registration error:', error.response?.data || error.message);

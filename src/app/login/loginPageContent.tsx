@@ -28,6 +28,7 @@ export default function LoginPage() {
     try {
       await authService.login(formData);
       router.push('/dashboard');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('Login Error:', error.response?.data || error.message);
       alert(error.response?.data?.message || 'Login failed!'); //
@@ -121,7 +122,7 @@ export default function LoginPage() {
 
         {/* Register Link */}
         <p className="mt-8 text-center text-white text-sm">
-          Don't have an account?{' '}
+          Don$apos;t have an account?{' '}
           <Link href="/register" className="text-white font-semibold hover:underline
                                           hover:text-purple-300 transition-colors duration-200">
             Register here

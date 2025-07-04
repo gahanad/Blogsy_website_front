@@ -28,6 +28,7 @@ const getToken = () : string | null =>{
 }
 
 // Register user
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const register = async (userData: any): Promise<AuthResponse> => {
   const response = await axios.post<AuthResponse>(API_URL + 'register', userData);
   if (response.data.token) {
@@ -41,6 +42,7 @@ const register = async (userData: any): Promise<AuthResponse> => {
 };
 
 // Login user
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const login = async (userData: any): Promise<AuthResponse> => {
   const response = await axios.post<AuthResponse>(API_URL + 'login', userData);
   if (response.data.token) {

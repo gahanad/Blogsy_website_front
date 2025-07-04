@@ -49,6 +49,7 @@ export default function DashboardPage() {
         setCurrentUser(userProfile);
 
         const apiResponse = await postService.getAllPosts();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const transformed = apiResponse.posts.map((apiPost: any): Post => ({
           _id: apiPost._id,
           user: {
@@ -70,6 +71,7 @@ export default function DashboardPage() {
         }));
 
         setPosts(transformed);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (err: any) {
         console.error('Failed to fetch dashboard data:', err);
         setError('Failed to load data. Please try again.');
@@ -125,6 +127,7 @@ export default function DashboardPage() {
       setCurrentUser(updatedProfile);
 
       alert('Post created successfully!');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error('Error creating post:', err);
       alert(err.response?.data?.message || 'Failed to create post.');
@@ -147,16 +150,13 @@ export default function DashboardPage() {
             : p
         )
       );
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error('Error liking post:', err);
       alert(err.response?.data?.message || 'Failed to like post.');
     }
   }, [currentUser]);
 
-
-  const handleAddComment = useCallback(() => {
-        // no-op
-    }, []);
 
 
 

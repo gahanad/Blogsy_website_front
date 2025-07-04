@@ -3,7 +3,6 @@
 
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
 import Image from 'next/image';
 import messageService from '@/services/messageService';
 import authService from '@/services/authService';
@@ -38,6 +37,7 @@ export default function ConversationMessagesPage() {
                 if (localStorage.getItem('userId')) { // Use localStorage for current user ID for now
                     await messageService.markMessagesAsRead(conversationId);
                 }
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (err: any) {
                 console.error('Failed to fetch messages or mark as read:', err);
                 setError('Failed to load messages. Please try again.');
@@ -85,6 +85,7 @@ export default function ConversationMessagesPage() {
 
         setMessages(prev => [...prev, response.message]); // Add new message to state
         setNewMessageContent('');
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
         console.error('Failed to send message:', err);
         alert(err.response?.data?.message || 'Failed to send message.');

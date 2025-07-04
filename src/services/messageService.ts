@@ -1,22 +1,8 @@
 import apiClient from "@/utils/axiosConfig";
 import { Message } from "@/app/types/message";
 
-interface UserProfile{
-    _id: number;
-    username: string;
-    profilePicture?: string;
-}
 
 
-
-interface Conversation {
-    _id: string;
-    participants: UserProfile[]; // Populated participants
-    lastMessage?: Message; // Populated last message
-    deletedBy: string[];
-    createdAt: string;
-    updatedAt: string;
-}
 
 
 const getUserConversations = async () => {
@@ -39,6 +25,7 @@ const getConversationMessages = async (
   });
 
   // Normalize sender._id to string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const messages = response.data.messages.map((m: any) => ({
     ...m,
     sender: {

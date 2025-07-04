@@ -24,7 +24,7 @@ export default function ConversationsPage() {
                     <span className="font-bold text-red-500">Under Construction!</span>
                 </p>
                 <p className="text-gray-600 mb-8">
-                    We're diligently working to bring you the best messaging experience.
+                    We$apos;re diligently working to bring you the best messaging experience.
                     Please check back soon!
                 </p>
                 <Link href="/dashboard" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors duration-200">
