@@ -24,3 +24,51 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes swirlIn {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1) rotate(20deg); /* Slightly overshoot for a bouncy effect */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Optional: Fade out animation */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* Optional: Slide in text */
+@keyframes slideInUp {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.gradient-custom-bg-multi{
+  background: linear-gradient(to bottom right,black 4%, #a7019c, rgb(6, 6, 109), black);
+}
+
+.gradient-custom-bg-multi2{
+  background: linear-gradient(to bottom right,black 4%, rgb(6, 6, 109), #a7019c, black);
+}
+
+.gradient-custom-bg-multi3{
+  background: linear-gradient(to right, rgb(13, 13, 222) , #a7019c);
+}
+
+.glowing-border {
+  /* border: 2px solid rgba(59, 130, 246, 0.5); Tailwind blue-500 */
+  box-shadow: 0 0 20px 5px rgb(255, 255, 255);
+}
+
+.gradient-custom-bg-multi4{
+  background: radial-gradient(circle, #c3b5b5,  rgb(196, 18, 152));
+}
