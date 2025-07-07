@@ -19,4 +19,4 @@ bun dev
 
 
 You can check out the output here,
-Blogsy: https://blogsy-website-front-3z8d.vercel.app/
+Blogsy: https://blogsy-website-front.vercel.app/
