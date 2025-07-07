@@ -1,9 +1,8 @@
 
 // frontend_next/src/services/authService.ts
-import axios from 'axios';
+import apiClient from '@/utils/axiosConfig';
 
-// IMPORTANT: Replace with your backend API base URL
-const API_URL = 'http://localhost:5000/api/auth/'; // Adjust if your auth routes are different
+
 
 interface UserData {
   _id: string;
@@ -30,7 +29,7 @@ const getToken = () : string | null =>{
 // Register user
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const register = async (userData: any): Promise<AuthResponse> => {
-  const response = await axios.post<AuthResponse>(API_URL + 'register', userData);
+  const response = await apiClient.post<AuthResponse>('/auth/register', userData);
   if (response.data.token) {
     // In Next.js, localStorage is only available on the client-side
     if (typeof window !== 'undefined') {
@@ -44,7 +43,7 @@ const register = async (userData: any): Promise<AuthResponse> => {
 // Login user
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const login = async (userData: any): Promise<AuthResponse> => {
-  const response = await axios.post<AuthResponse>(API_URL + 'login', userData);
+  const response = await apiClient.post<AuthResponse>('/auth/login', userData);
   if (response.data.token) {
     if (typeof window !== 'undefined') {
       localStorage.setItem('token', response.data.token);
