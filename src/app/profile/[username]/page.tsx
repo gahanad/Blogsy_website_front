@@ -97,10 +97,10 @@ export default function UserProfilePage() {
     if (!profileUser) return <div className="p-6 text-center">Profile data not available.</div>;
 
     return (
-        <div className="mx-auto p-4 pt-30 gradient-custom-bg-multi4"> {/* Add pt-20 for header */}
+        <div className="min-h-screen w-full p-4 pt-30 gradient-custom-bg-multi4 "> {/* Add pt-20 for header */}
             <h1 className="text-3xl font-bold mb-6 text-center text-white">User Profile: {profileUser.username}</h1>
 
-            <div className="bg-white/10 rounded-xl p-7 border border-transparent max-w-2xl mx-auto flex flex-col items-center backdrop:filter backdrop-blur()  glowing-border">
+            <div className="bg-white/10 rounded-xl p-7 border border-transparent h-full w-full max-w-[95%] sm:max-w-2xl md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col items-center backdrop:filter backdrop-blur()  glowing-border">
 
                 <Image
                     src={profileUser.avatar || '/images/Logo_enter.png'}
