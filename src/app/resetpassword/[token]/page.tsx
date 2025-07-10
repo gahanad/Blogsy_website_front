@@ -22,6 +22,7 @@ export default function ResetPasswordPage() {
       const res = await authService.resetPassword(token as string, password);
       alert(res.message || 'Password reset successful');
       router.push('/login');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error(error);
       alert(error.response?.data?.message || 'Password reset failed');

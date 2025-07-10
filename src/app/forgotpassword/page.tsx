@@ -17,6 +17,7 @@ export default function ForgotPasswordPageContent() {
         const response = await authService.forgotPassword(email);
         alert(response.message); // Show message from backend
         router.push('/login');   // Redirect to login
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.error('Forgot password error:', error);
         alert(error.response?.data?.message || 'Failed to send reset link');
