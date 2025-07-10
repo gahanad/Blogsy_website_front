@@ -62,7 +62,7 @@ const forgotPassword = async (email: string): Promise<{ message: string }> => {
 // Reset Password
 // Reset password using token
 const resetPassword = async (token: string, newPassword: string): Promise<{ message: string }> => {
-  const response = await apiClient.post(`/auth/resetpassword/${token}`, { password: newPassword });
+  const response = await apiClient.put(`/auth/resetpassword/${token}`, { password: newPassword });
   return response.data;
 };
 
