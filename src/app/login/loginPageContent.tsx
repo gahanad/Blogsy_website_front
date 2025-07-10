@@ -42,7 +42,7 @@ export default function LoginPage() {
       {/* Centered form container with blur and transparency (glassmorphism) */}
       <div className="bg-white/10 p-8 rounded-2xl shadow-2xl w-full max-w-md
                       backdrop-filter backdrop-blur-lg border border-white/20
-                      transform transition-all duration-300 hover:scale-[1.1]"> {/* Glassmorphism effect */}
+                      transform transition-all duration-300 hover:scale-[1.05]"> {/* Glassmorphism effect */}
 
         <h1 className="text-4xl font-extrabold text-center text-white mb-8 tracking-tight">
           Welcome Back!
@@ -101,7 +101,7 @@ export default function LoginPage() {
 
           {/* Remember Me / Forgot Password - Optional, added as per previous glassmorphism example */}
           <div className="flex justify-between items-center text-sm">
-            <Link href="/forgot-password" className="text-white hover:underline hover:text-purple-300 transition-colors duration-200 mr-0">
+            <Link href="/forgotpassword" className="text-white hover:underline hover:text-purple-300 transition-colors duration-200 mr-0">
               Forgot password?
             </Link>
           </div>

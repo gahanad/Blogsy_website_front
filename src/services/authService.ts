@@ -53,6 +53,20 @@ const login = async (userData: any): Promise<AuthResponse> => {
   return response.data;
 };
 
+// Forgot Password
+const forgotPassword = async (email: string): Promise<{ message: string }> => {
+  const response = await apiClient.post<{ message: string }>('/auth/forgotpassword', { email });
+  return response.data;
+};
+
+// Reset Password
+// Reset password using token
+const resetPassword = async (token: string, newPassword: string): Promise<{ message: string }> => {
+  const response = await apiClient.post(`/auth/resetpassword/${token}`, { password: newPassword });
+  return response.data;
+};
+
+
 // Logout user
 const logout = (): void => {
   if (typeof window !== 'undefined') {
@@ -75,6 +89,8 @@ const authService = {
   login,
   logout,
   getCurrentUser,
+  forgotPassword,
+  resetPassword,
 };
 
 export default authService;

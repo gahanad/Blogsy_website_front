@@ -69,7 +69,7 @@ export default function RegisterPageContent() {
       {/* Centered form container with blur and transparency (glassmorphism) */}
       <div className="bg-white/10 p-8 rounded-2xl shadow-2xl w-full max-w-md
                       backdrop-filter backdrop-blur-lg border border-white/20
-                      transform transition-all duration-300 hover:scale-[1.1]">
+                      transform transition-all duration-300 hover:scale-[1.05]">
 
         <h2 className="text-4xl font-extrabold text-center text-white mb-8 tracking-tight">
           Register Account
