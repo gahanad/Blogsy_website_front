@@ -2,8 +2,9 @@
 import axios from 'axios';
 import authService from '@/services/authService'; // Adjust path if needed
 
+const base = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '');
 const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL + '/api', // Your backend API base URL
+  baseURL: `${base}/api`,// Your backend API base URL
   headers: {
     'Content-Type': 'application/json',
   },
